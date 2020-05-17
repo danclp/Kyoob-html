@@ -1,0 +1,324 @@
+.home-contents {
+	@include clearfix;
+} // .home-contents
+
+.about-section {
+	@include clearfix;
+	background: linear-gradient(
+		to bottom, rgba(site-color('day'), 0.95) 55%, 
+		rgba(site-color('day'), 0.75)
+	), image('dictionary.jpg') left top/cover no-repeat;
+	padding-top: 60px;
+	padding-bottom: 60px;
+
+	.about-section_wrap {
+		position: relative;
+	} // .about-section_wrap
+
+	.about-section_contents {
+		a {
+			margin-bottom: 15px;
+
+			&:after {
+				content: ">";
+				display: inline-block;
+				padding-left: 8px;
+			} // :after
+		} // a
+	} // .about-section_contents
+
+	.about-section_header {
+		border-bottom: 2px solid site-color('subprime');
+		float: left;
+		font-size: 2em;
+		margin-top: 0;
+		padding-bottom: 20px;
+	} // .about-section_header
+
+	// .sub-nav {
+	// 	border-top: 2px solid site-color('subprime');
+	// 	float: left;
+	// 	margin-top: 10px;
+	// 	padding-top: 20px;
+
+	// 	li {
+	// 		margin-bottom: 15px;
+
+	// 		a {
+	// 			&:after {
+	// 				content: ">";
+	// 				display: inline-block;
+	// 				padding-left: 8px;
+	// 			} // :after
+	// 		} // a
+	// 	} // li
+	// } // .sub-nav
+
+	@include breakpoint($tablet) {
+		background: linear-gradient(
+			to right, rgba(site-color('day'), 0.65), 
+			rgba(site-color('day'), 0.95)
+		), image('dictionary.jpg') left top/cover no-repeat;
+
+		.about-section_wrap {
+			min-height: 700px;
+		} // .about-section_wrap
+
+		.about-section_contents {
+			@include translate(-5%, -50%);
+			text-align: right;
+			position: absolute;
+			top: 50%;
+			right: 5%;
+			width: 385px;
+
+			a {
+				display: inline-block;
+				margin-left: 20px;
+			} // a
+		} // .about-section_contents
+
+		.about-section_header {
+			border-bottom: 0;
+		} // .about-section_header
+
+		// .sub-nav {
+		// 	@include clearfix;
+		// 	border: 0;
+		// 	float: none;
+		// 	padding: 0;
+
+		// 	ul {
+		// 		float: right;
+		// 	} // ul
+
+		// 	li {
+		// 		display: inline-block;
+		// 		float: left;
+		// 		margin-left: 20px;
+		// 	} // li
+		// } // .sub-nav
+	} // bp(tablet)
+
+	@include breakpoint($desktop) {
+		background: linear-gradient(
+			to right, rgba(site-color('day'), 0.35), 
+			rgba(site-color('day'), 0.95)
+		), image('dictionary.jpg') left top/cover no-repeat fixed;
+
+		.about-section_contents {
+			width: 500px;
+		} // .about-section_contents
+
+		.about-section_header {
+			font-size: 2.369em;
+		} // .about-section_header
+	} // bp(desktop)
+} // .about-section
+
+.work-section {
+	@include clearfix;
+
+	.work-section_categories {
+		.work-section_category {
+			overflow: hidden;
+			position: relative;
+
+			&:before {
+				background-image: linear-gradient(
+					to top, rgba(site-color('primary'), 1) 10%,
+					rgba(site-color('primary'), 0)
+				);
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 50%;
+				z-index: 1;
+			} // :before
+		} // .work-section_category
+
+		.work-section_image {} // .work-section_image
+
+		.work-section_text {
+			bottom: 0;
+			color: site-color('link');
+			left: 0;
+			margin-bottom: 0;
+			padding: 10px 15px;
+			position: absolute;
+			width: 100%;
+			z-index: 2;
+		} // .work-section_text
+	} // .work-section_categories
+
+	@include breakpoint($tablet) {
+		.work-section_categories {
+			@include clearfix;
+
+			.work-section_category {
+				@include grid(2, 0);
+
+				&:first-child {
+					border-right: 1px solid site-color('primary');
+				} // :first-child
+			} // .work-section_category
+		} // .work-section_categories
+	} // bp($tablet)
+
+	@include breakpoint($desktop) {
+		.work-section_categories {
+			.work-section_category {
+				&:before {
+					@include transition;
+					background-image: linear-gradient(
+						to top, rgba(site-color('primary'), 0.75) 10%,
+						rgba(site-color('primary'), 0)
+					);
+					bottom: -100%
+				} // :before
+
+				&:hover {
+					&:before {
+						@include transition(all 1s ease-in-out);
+						bottom: 0;
+					} // :before
+
+					.work-section_image {
+						@include transition(all 1s ease-in-out);
+						filter: grayscale(1);
+					} // .work-section_image
+
+					.work-section_text {
+						left: 0;
+					} // .work-section_text
+				} // :hover
+			} // .work-section_category
+
+			.work-section_image {
+				@include transition;
+				filter: grayscale(0);
+			} // .work-section_image
+
+			.work-section_text {
+				@include transition(all 1s ease-in-out);
+				left: 200%;
+				padding: 20px;
+			} // .work-section_text
+		} // .work-section_categories
+	} // bp($desktop)
+
+	@include breakpoint($widescn) {
+		.work-section_categories {
+			.work-section_category {} // .work-section_category
+
+			.work-section_image {
+				// @include transform(translateY(-30%));
+			} // .work-section_image
+
+			.work-section_text {
+				font-size: 1.333em;
+				padding: 30px;
+			} // .work-section_text
+		} // .work-section_categories
+	} // bp($widescn)
+} // .work-section
+
+.contact-section {
+	@include clearfix;
+	background-color: lighten(site-color('night'), 95);
+	padding: 60px 15px;
+	position: relative;
+
+	.contact-section_map {
+		// border-bottom: 5px solid lighten(site-color('night'), 95);
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 320px;
+
+		.map {
+			height: 300px;
+		} // .map
+	} // .contact-section_map
+
+	.contact-section_details {
+		background-color: site-color('primary');
+		color: site-color("day");
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 320px;
+	} // .contact-section_details
+
+	.contact-section_address {
+		padding: 15px;
+
+		h5 {
+			color: site-color('day');
+			margin-top: 0;
+		} // h5
+
+		p {
+			color: site-color('day');
+		} // p
+	} // .contact-section_address
+
+	.contact-section_form {
+		background-color: site-color('text');
+		padding: 15px;
+
+		li {
+			margin-bottom: 15px;
+
+			&:last-child {
+				margin-bottom: 0;
+			} // :last-child
+
+			label, input, textarea {
+				display: block;
+			} // label, input, textarea
+
+			label {
+				font-size: 0.75em;
+			} // label
+
+			input, textarea {
+				background-color: lighten(site-color('text'), 15);
+				border: 0;
+				color: site-color('day');
+				padding: 5px;
+				width: 100%;
+			} // input, textarea
+
+			input {
+				&[type="submit"] {
+					background-color: site-color('link');
+				} // [type="submit"]
+			} // input
+		} // li
+	} // .contact-section_form
+
+	@include breakpoint($tablet) {
+		.contact-section_map {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			max-width: 100%;
+			z-index: 1;
+
+			.map {
+				height: 100%;
+			} // .map
+		} // .contact-section_map
+		
+		.contact-section_details {
+			float: left;
+			margin-left: 0;
+			position: relative;
+			z-index: 2;
+		} // .contact-section_details
+	} // bp($tablet)
+} // .contact-section

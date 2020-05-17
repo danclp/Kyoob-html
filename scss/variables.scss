@@ -1,0 +1,56 @@
+// Susy and breakpoint
+
+$susy: (
+	'columns'         : susy-repeat(4),
+	'gutters'         : 0.25,
+	'spread'          : 'narrow',
+	'container-spread': 'wide',
+);
+	
+// Media Query
+$narrow 	          : 340px;
+$tablet 	          : 768px;
+$desktop 	          : 980px;
+$widescn 	          : 1440px;
+
+// Typo 
+$base-font-size 	  : 1rem;
+$base-line-height   : $base-font-size * 1.25;
+
+$type-settings: (
+  -1: (
+    font-size: 0.75rem,
+    line-height: $base-line-height
+  ),
+  0: (
+    font-size: 1rem,
+    line-height: $base-line-height
+  ),
+  1: (
+    font-size: 1.333rem,
+    line-height: $base-line-height * 2
+  ),
+  2: (
+    font-size: 1.778rem,
+    line-height: $base-line-height * 2
+  )
+);
+
+// Font Weight
+$font-weight: (
+	'light'           : 300,
+	'regular'         : 400,
+	'medium'          : 600,
+	'bold' 			      : 700,
+	'black'   	      : 900
+);
+
+// Color Swatches
+$site-colors: (
+  'primary'         : #211C1A,
+  'subprime'        : #352E2A,
+  'text'            : #717074,
+  'link'            : #85B945,
+  'night'           : #000,
+  'day'             : #FFF
+);

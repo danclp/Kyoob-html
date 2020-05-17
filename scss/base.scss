@@ -1,0 +1,144 @@
+*, *:before, *:after {
+	@include box-sizing;
+} // *
+
+html {
+	position: relative;
+	min-height: 100%;
+} // html
+
+body {
+	color           : site-color('text');
+	font            : $mainFont;
+} //body
+
+// Check the @function at Variable.scss
+// Then call it with the rules/styles you want wherever you want (As long as the file/include has access to the above function of course).
+#{headings()} {
+	color           : site-color('night');
+  font 				 		: $mainFont;
+  line-height 		: 1.15;
+	margin 					: 2.75rem 0 1rem;
+} //headings
+
+h1 {
+	margin-top 			: 0;
+	font-size 			: 4.209em;
+} // h1
+
+h2 {
+	font-size 			: 3.157em;
+} // h2
+
+h3 {
+	font-size 			: 2.369em;
+} // h3
+
+h4 {
+	font-size 			: 1.777em;
+} // h4
+
+h5 {
+	font-size 			: 1.333em;
+} // h5
+
+p {
+	color: site-color('text');
+	margin          : 0 0 1.25em;
+
+	&:last-child {
+		margin-bottom: 0;
+	} // :last-child
+} //p
+
+small, .text_small {
+	font-size 			: 0.75em;
+}
+
+a {
+	color 					: site-color('link');
+	display         : block;
+	font-weight: weight('regular');
+	text-decoration : none;
+} // a
+
+ul {
+	list-style      : none;
+	margin 					: 0;
+	padding 				: 0;
+} // ul
+
+img {
+	display         : block;
+	width           : 100%;
+} // img
+
+figure {
+	margin: 0;
+	padding: 0;
+} // figure
+
+// for media Print
+@media print {
+	* {
+		background: none !important;
+		color: black !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+
+		/* Images, vectors and such */
+		filter: Gray(); 						 /* IE4-8: depreciated */
+		filter: url('desaturate.svg#grayscale'); /* SVG version for IE10, Firefox, Safari 5 and Opera */
+		-webkit-filter: grayscale(100%); 		 /* Chrome + Safari 6 */
+		-moz-filter: grayscale(100%); 			 /* Future proof */
+		-ms-filter: grayscale(100%); 			 /* Future proof */
+		-o-filter: grayscale(100%); 			 /* Future proof */
+		filter: grayscale(100%); 				 /* Future proof or polyfilled */
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ")"; 
+	}
+
+	a[href="#"],
+	a[href="javascript:"] {
+		content: "";
+	}
+}
+
+.wrap {
+	@include transition;
+	padding-left: 30px;
+	padding-right: 30px;
+	max-width: 1440px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	// @include susy-breakpoint($tablet, 6) {
+	// 	@include show-grid();
+	// } // bp($tablet)
+	
+	// @include susy-breakpoint($desktop, 12) {
+	// 	@include show-grid();
+	// } // bp($desktop)
+} // .wrap
+
+.outer-wrap {
+	@include transition;
+	
+	@include breakpoint($tablet) {
+		// @include container(750px);
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		// @include container(970px);
+	} // bp($desktop)
+	
+	@include breakpoint($widescn) {
+		// @include container;
+	} // bp($wide)
+} // .outer-wrap

@@ -1,0 +1,66 @@
+.main-nav {
+	.toggleWrap {
+		@include transform(translateY(-20%));
+		position: absolute;
+		right: 15px;
+	} // .toggleWrap
+
+	.main-nav_wrap {
+		@include transition;
+		float: left;
+		height: 0;
+		overflow: hidden;
+		width: 100%;
+
+		li {
+			border-bottom: 1px dashed lighten(site-color('primary'), 20);
+			text-align: center;
+
+			&.current-menu-item, &:hover {
+				a {
+					color: site-color('link');
+				} // a
+			} // .active
+
+			a {
+				@include transition(color 0.35s ease-in-out);
+				color: site-color('day');
+				padding: 10px 0;
+			} // a
+		} // li
+
+		&.active {
+			height: 100vh;
+			padding-top: 30px;
+		} // .active
+	} // .main-nav_wrap
+
+	@include breakpoint($tablet) {
+		.toggleWrap {
+			display: none;
+		} // .toggleWrap
+
+		.main-nav_wrap {
+			float: right;
+			height: 100%;
+			width: auto;
+
+			li {
+				border: 0;
+				float: left;
+				// margin-left: 20px;
+
+				&:last-child {
+					a {
+						padding-right: 0;
+					} // a
+				} // :first-child
+
+				a {
+					font-size: 16px;
+					padding: 0 10px;
+				} // a
+			} // li
+		} // .main-nav_wrap
+	} // bp($tablet)
+} // .main-nav

@@ -1,0 +1,252 @@
+.site-header {
+	@include transition(top 0.35s ease-in-out);
+	background-color: rgba(site-color('primary'), 0.9);
+	@include position(fixed, $top: 0);
+	width: 100%;
+	z-index: 100;
+
+	&.nav-up {
+		top: -10%;
+	} // .nav-up
+
+	.site-header_wrap {
+		@include clearfix;
+		padding: 15px;
+	} // .site-header_wrap
+
+	.brand {
+		float: left;
+		width: 120px;
+	} // .brand
+
+	@include breakpoint($tablet) {
+		.site-header_wrap {
+			padding: 15px 30px;
+		} // .site-header_wrap
+	} // bp($tablet)
+} // .site-header
+
+.hero {
+	background-color: site-color('primary');
+	height: 100vh;
+	position: relative;
+
+	.hero-image {
+		background: {
+			position: 30% top;
+			repeat: no-repeat;
+			size: cover;
+		} // background
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		&:before {
+			background: linear-gradient(to top, rgba(site-color('primary'), 0.65), rgba(site-color('subprime'), 0.1));
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+		} // :before
+	} // .hero-image
+
+	h2 {
+		@include translate(-50%, -40%);
+		color: site-color('day');
+		font: {
+			size: 4.25em;
+			weight: weight('medium');
+		} // font
+		position: absolute;
+		top: 40%;
+		left: 50%;
+	} // h2
+
+	@include breakpoint($tablet) {
+		h2 {
+			@include translate(-50%, -50%);
+			font-size: 8em;
+			top: 50%;
+			left: 50%;
+		} // h2
+	} // bp(tablet)
+} // .hero
+
+.contents {
+	background-color: site-color('day');
+	box-shadow: 0 2px 20px rgba(site-color('primary'), 0.1);
+	position: relative;
+	z-index: 2;
+} // .contents
+
+.intro {
+	padding: 30px 0 60px;
+
+	@include breakpoint($tablet) {
+		text-align: center;
+	} // bp($tablet)
+
+	@include breakpoint($desktop) {
+		padding: 60px 0 120px;
+	} // bp($desktop)
+} // .intro
+
+.services {
+	@include clearfix;
+	padding-bottom: 60px;
+
+	.services-title {
+		margin: 20px 0;
+	} // .services-title
+
+	h3 {
+		font: {
+			size: 1.15em;
+			weight: weight('bold');
+		} // font
+		margin: 20px 0 10px;
+
+		&:before {
+			background-color: site-color('night');
+			content: '';
+			display: block;
+			margin-bottom: 10px;
+			width: 80px;
+			height: 5px;
+		} // :before
+	} // h3
+
+	ul {
+		list-style: square;
+		font-size: 0.95em;
+		margin-left: 20px;
+
+		small {
+			display: block;
+		} // small
+	} // ul
+
+	@include breakpoint($tablet) {
+		.services-image {} // .services-image
+
+		.services-brief {
+			display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    padding: 60px 0;
+		} // .service-brief
+
+		.services-title {
+	    font: {
+	    	size: 4em;
+		    weight: weight('medium');
+	    } // font
+	    line-height: 1;
+		} // .services-title
+
+		.services-brief_text {
+			margin-left: 80px;
+		} // .services-brief
+
+		p {} // p
+
+		h3 {} // h3
+
+		.services-list {
+			margin-top: 40px;
+		} // .services-list
+	} // bp(tablet)
+
+	@include breakpoint($desktop) {
+		.services-brief_text {
+			margin-left: 180px;
+		} // .services-brief
+
+		p {} // p
+
+		h3 {} // h3
+
+		.services-list {
+			margin-top: 40px;
+		} // .services-list
+	} // bp(desktop)
+} // .services
+
+.site-footer {
+	@include clearfix;
+	height: 70px;
+
+	.social-media {
+		background-color: site-color('primary');
+		padding-top: 20px;
+		padding-bottom: 20px;
+		// position: absolute;
+		text-align: center;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 70px;
+
+		&.fixed {
+			position: fixed;
+		} // .fixed
+
+		a {
+			display: inline-block;
+			font: 0/0 a;
+			padding: 0 10px;
+			text-shadow: none;
+			color: transparent;
+
+			&:before {
+				color: site-color('link');
+				display: inline-block;
+				font: {
+					family: 'Font Awesome 5 Brands';
+					size: 24px;
+				} // font
+			} // :before
+
+			&[href='https://facebook.com'] {
+				&:before {
+					content: '\f082';
+				} // before
+			} // facebook.com
+
+			&[href='https://twitter.com'] {
+				&:before {
+					content: '\f081';
+				} // before
+			} // twitter.com
+
+			&[href='https://instagram.com'] {
+				&:before {
+					content: '\f16d';
+				} // before
+			} // instagram.com
+
+			&[href='https://pinterest.com'] {
+				&:before {
+					content: '\f0d3';
+				} // before
+			} // pinterest.com
+
+			&[href='https://linkedin.com'] {
+				&:before {
+					content: '\f08c';
+				} // before
+			} // linkedin.com
+		} // a
+	} // .social-media
+
+	@include breakpoint($tablet) {
+		.social-media {
+			padding-left: 40px;
+			padding-right: 40px;
+			text-align: right;
+		} // .social-media
+	} // bp($tablet)
+} // .site-footer

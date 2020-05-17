@@ -1,0 +1,1 @@
+jQuery(document).ready((function(){$(".showcase-thumbnails").owlCarousel({dots:!0,responsiveClass:!0,responsive:{0:{items:2},768:{items:3}}})}));
